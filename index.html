@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Meu primeiro deploy</title>
+  <title>Gerador de Link WhatsApp</title>
 </head>
 <body>
-  <h1>🚀 Meu site está online!</h1>
-  <p>Deploy feito com Veloz.</p>
+
+<h1>Gerador de Link de WhatsApp</h1>
+
+<label>Número:</label><br>
+<input id="numero" placeholder="5599999999999"><br><br>
+
+<label>Mensagem:</label><br>
+<input id="mensagem" placeholder="Olá quero informações"><br><br>
+
+<button onclick="gerar()">Gerar link</button>
+
+<p id="resultado"></p>
+
+<script>
+function gerar() {
+  let numero = document.getElementById("numero").value;
+  let mensagem = encodeURIComponent(
+    document.getElementById("mensagem").value
+  );
+
+  let link = "https://wa.me/" + numero + "?text=" + mensagem;
+
+  document.getElementById("resultado").innerHTML =
+    "<a href='" + link + "' target='_blank'>" + link + "</a>";
+}
+</script>
+
 </body>
 </html>
