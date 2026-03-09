@@ -1,33 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gerador de Link WhatsApp</title>
+<meta charset="UTF-8">
+<title>Gerador de Link WhatsApp</title>
+
+<style>
+body{
+  font-family: Arial;
+  background:#f4f6f8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+  width:400px;
+}
+
+h1{
+  text-align:center;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:15px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  background:#25D366;
+  border:none;
+  color:white;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#1ebe5b;
+}
+
+.result{
+  margin-top:20px;
+  word-break:break-all;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>Gerador de Link de WhatsApp</h1>
+<div class="container">
 
-<label>Número:</label><br>
-<input id="numero" placeholder="5599999999999"><br><br>
+<h1>Gerador de Link WhatsApp</h1>
 
-<label>Mensagem:</label><br>
-<input id="mensagem" placeholder="Olá quero informações"><br><br>
+<label>Número</label>
+<input id="numero" placeholder="5599999999999">
+
+<label>Mensagem</label>
+<input id="mensagem" placeholder="Olá quero informações">
 
 <button onclick="gerar()">Gerar link</button>
 
-<p id="resultado"></p>
+<div class="result" id="resultado"></div>
+
+</div>
 
 <script>
-function gerar() {
-  let numero = document.getElementById("numero").value;
-  let mensagem = encodeURIComponent(
-    document.getElementById("mensagem").value
-  );
+function gerar(){
 
-  let link = "https://wa.me/" + numero + "?text=" + mensagem;
+let numero = document.getElementById("numero").value;
+let mensagem = encodeURIComponent(document.getElementById("mensagem").value);
 
-  document.getElementById("resultado").innerHTML =
-    "<a href='" + link + "' target='_blank'>" + link + "</a>";
+let link = "https://wa.me/" + numero + "?text=" + mensagem;
+
+document.getElementById("resultado").innerHTML =
+"<p>Seu link:</p><a href='"+link+"' target='_blank'>"+link+"</a>";
+
 }
 </script>
 
